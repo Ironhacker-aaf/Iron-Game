@@ -1,4 +1,4 @@
-git// canvas definition
+// canvas definition
 const canvasGame = document.querySelector('#game-canvas');
 
 // context definition
