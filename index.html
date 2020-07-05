@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Race Car</title> 
+   <style>
+        canvas{
+            background-color: green;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        #label{
+            width: 1000px;
+            height: 500px;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-family:Georgia, 'Times New Roman', Times, serif;
+        
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="game-canvas" width="1000" height="500"></canvas>
+    <img class="car"><img>
+    <script src="js/game.js"></script>
+    <div id="score">
+        <div class ="game-board">
+            <div class="label"> Score:</div>
+
+        </div>
+    </div>
+</body>
+
+</html>
