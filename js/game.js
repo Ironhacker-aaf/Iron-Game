@@ -20,6 +20,7 @@ road.onload = () => {
 let roadX = 1066;
 let roadY = 70;
 let acceleration = 5;
+let maxSpeed = 120
 let carPosition = 155;
 
 document.body.onkeyup = function (e) {
@@ -37,7 +38,10 @@ document.body.onkeydown = function (e) {
       carPosition = 155;
       break;
     case 32:
-        acceleration = 20;
+        if(acceleration < maxSpeed)
+            acceleration += 1;
+
+        console.log(acceleration);
         break;
     default:
       break;
