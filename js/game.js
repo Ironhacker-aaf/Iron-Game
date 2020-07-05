@@ -1,3 +1,4 @@
+//daniel
 // canvas definition
 const canvasGame = document.querySelector('#game-canvas');
 
