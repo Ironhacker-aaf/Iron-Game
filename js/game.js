@@ -1,49 +1,58 @@
 // canvas definition
-const canvasGame = document.querySelector('#game-canvas');
+const canvasGame = document.querySelector("#game-canvas");
 
 // context definition
-let ctx = canvasGame.getContext('2d');
+let ctx = canvasGame.getContext("2d");
 
 //adding my road
 let road = new Image();
-road.src = './images/roadAndTrees.png'; // navigate to this file as you were in html file
+road.src = "./images/roadAndTrees.png"; // navigate to this file as you were in html file
 
 //adding the car
 
-let car = new Image;
-car.src = './images/carThreeOkk.png';
+let car = new Image();
+car.src = "./images/carThreeOkk.png";
 
 road.onload = () => {
-    requestAnimationFrame(gameLoop);
-}
+  requestAnimationFrame(gameLoop);
+};
 
-let roadX = 0;
+let roadX = 1066;
 let roadY = 70;
+let acceleration = 5;
+let carPosition = 155;
+
+document.body.onkeyup = function (e) {
+  if (e.keyCode == 32) {
+    acceleration = 5;
+  }
+};
+
+document.body.onkeydown = function (e) {
+  switch (e.keyCode) {
+    case 40:
+      carPosition = 250;
+      break;
+    case 38:
+      carPosition = 155;
+      break;
+    case 32:
+        acceleration = 20;
+        break;
+    default:
+      break;
+  }
+};
 
 function gameLoop() {
-    if (roadX <= 1000000) roadX = 0;
-    ctx.drawImage(road, roadX, roadY);
-    // ctx.drawImage(road, roadX + 1000, roadY, );
-    // ctx.drawImage(road, roadX + 2000, roadY);
-    // ctx.drawImage(road, roadX + 3000, roadY);
-    // ctx.drawImage(road, roadX + 4000, roadY);
-    // ctx.drawImage(road, roadX + 5000, roadY);
-    // ctx.drawImage(road, roadX + 6000, roadY);
-    // ctx.drawImage(road, roadX + 7000, roadY);
-    // ctx.drawImage(road, roadX + 8000, roadY);
-    // ctx.drawImage(road, roadX + 9000, roadY);
-    // ctx.drawImage(road, roadX + 10000, roadY);
-    // ctx.drawImage(road, roadX + 11000, roadY);
+  if (roadX <= 0) roadX = 1066;
 
-    roadX += 1000;
+  ctx.drawImage(road, roadX, roadY);
+  ctx.drawImage(road, roadX - 1066, roadY);
 
-    ctx.drawImage(car, 0, 155);
+  roadX -= acceleration;
 
-    requestAnimationFrame(gameLoop);
+  ctx.drawImage(car, 0, carPosition);
+
+  requestAnimationFrame(gameLoop);
 }
-
-
-
-
-
-
